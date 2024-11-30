@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">KoiStory</string>
+    <string name="judulUtama" translatable="false">KOI</string>
+    <string name="subJudul" translatable="false">story</string>
+    <string name="message">Live Your Story</string>
+    <string name="daftar">REGISTER</string>
+    <string name="masuk">LOG IN</string>
+    <string name="keluar">LOG OUT</string>
+    <string name="unggah">Upload</string>
+    <string name="unggah_cerita">upload story</string>
+    <string name="deskripsi_gambar">Fill your description here</string>
+    <string name="album">Gallery</string>
+    <string name="kamera">Camera</string>
+    <string name="cameraX" translatable="false">CameraX</string>
+    <string name="gambar_unggahan">Uploaded Image</string>
+    <string name="tekan_kamera">tap camera</string>
+    <string name="putar_kamera">switch to front or back camera</string>
+    <string name="gambar_halaman_login">login image</string>
+    <string name="judul">Ready to sail the world at KOI?</string>
+    <string name="pesan_login">Please fill your data</string>
+    <string name="email">Email</string>
+    <string name="placeholder_email">Fill your email address</string>
+    <string name="password">Password</string>
+    <string name="placeholder_password">Fill your password</string>
+    <string name="tambah_cerita">create new story</string>
+    <string name="judul_halaman_registrasi">Hey! let\'s fill your data</string>
+    <string name="nama">Name</string>
+    <string name="placeholder_nama">Please fill your name</string>
+    <string name="daftar_cerita">Story List</string>
+    <string name="nama_pengguna">User Name</string>
+    <string name="alert_login_success">Login success. Let\'s go!</string>
+    <string name="alert_register_success">"We did it. Please log in"</string>
+    <string name="alert_login_error">Unable to log you in. Try again.</string>
+    <string name="alert_logout_success">Log out success, see you soon!</string>
+    <string name="tidak_ada_data">No data :(</string>
+    <string name="tidak_ada_internet">No internet :(</string>
+    <string name="error_bad_request">Bad Request. Check for errors.</string>
+    <string name="error_unauthorized">Unauthorized. Please log in.</string>
+    <string name="error_forbidden">Forbidden. Access denied.</string>
+    <string name="error_not_found">Not Found. Page not found.</string>
+    <string name="error_internal">Internal Server Error. Try again later.</string>
+    <string name="error_unknown">Unknown error.</string>
+</resources>

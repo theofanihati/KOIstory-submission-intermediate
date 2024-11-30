@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name" translatable="false">KoiStory</string>
+    <string name="judulUtama" translatable="false">KOI</string>
+    <string name="subJudul" translatable="false">story</string>
+    <string name="message">Hidupkan ceritamu</string>
+    <string name="daftar">DAFTAR</string>
+    <string name="masuk">MASUK</string>
+    <string name="keluar">KELUAR</string>
+    <string name="unggah">Unggah</string>
+    <string name="unggah_cerita">unggah cerita</string>
+    <string name="deskripsi_gambar">Isi deskripsi disini</string>
+    <string name="album">Album</string>
+    <string name="kamera">Kamera</string>
+    <string name="cameraX" translatable="false">CameraX</string>
+    <string name="gambar_unggahan">Gambar Unggahan</string>
+    <string name="tekan_kamera">tekan kamera</string>
+    <string name="putar_kamera">ganti ke kamera depan atau belakang</string>
+    <string name="gambar_halaman_login">gambar halaman login</string>
+    <string name="judul">Siap berselancar di KoiStory?</string>
+    <string name="pesan_login">Isi datamu dulu ya</string>
+    <string name="email">Alamat Email</string>
+    <string name="placeholder_email">Masukkan alamat email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="placeholder_password">Masukkan password</string>
+    <string name="tambah_cerita">buat cerita baru</string>
+    <string name="judul_halaman_registrasi">Yuk, lengkapi data dirimu</string>
+    <string name="nama">Nama</string>
+    <string name="placeholder_nama">Masukkan nama</string>
+    <string name="daftar_cerita">Daftar Cerita</string>
+    <string name="nama_pengguna">Nama Pengguna</string>
+    <string name="alert_login_success">Anda berhasil login. Siap berbagi cerita?</string>
+    <string name="alert_register_success">"Akun sudah jadi nih. Yuk, login"</string>
+    <string name="alert_login_error">Login gagal. Silakan coba lagi.</string>
+    <string name="alert_logout_success">Berhasil keluar. Sampai jumpa!</string>
+    <string name="tidak_ada_data">Data tidak ada :(</string>
+    <string name="tidak_ada_internet">Tidak ada internet :(</string>
+    <string name="error_bad_request">Data tidak dapat diakses.</string>
+    <string name="error_unauthorized">Tidak memiliki akses. Login dulu yuk.</string>
+    <string name="error_forbidden">Akses terbatas. Akses ditolak.</string>
+    <string name="error_not_found">Tidak ditemukan. Halaman tidak ditemukan.</string>
+    <string name="error_internal">Kesalahan server internal. Coba lagi nanti.</string>
+    <string name="error_unknown">Kesalahan tidak dikenali.</string>
+
+</resources>
