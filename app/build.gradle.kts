@@ -64,7 +64,8 @@ dependencies {
     implementation (libs.okhttp)
 
     // glide
-    implementation (libs.glide)
+    implementation ("com.github.bumptech.glide:glide:4.15.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.0")
 
     // kamera
     implementation(libs.androidx.camera.camera2)

@@ -130,6 +130,8 @@ class CombinedViewModel(application: Application, private val repository: UserRe
     fun setCurrentImageUri(uri: Uri?) {
         _imageUri.value = uri
     }
+
+
     private fun handleError(code: Int?) {
         _errorMessage.value = when (code) {
             400 ->  context.getString(R.string.error_bad_request)

@@ -40,5 +40,9 @@
     <string name="error_not_found">Tidak ditemukan. Halaman tidak ditemukan.</string>
     <string name="error_internal">Kesalahan server internal. Coba lagi nanti.</string>
     <string name="error_unknown">Kesalahan tidak dikenali.</string>
+    <string name="appwidget_text" translatable="false">Koi Story</string>
+    <string name="empty_text" translatable="false">NO DATA</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="app_widget_description">menampilkan gambar cerita pada widget</string>
 
 </resources>

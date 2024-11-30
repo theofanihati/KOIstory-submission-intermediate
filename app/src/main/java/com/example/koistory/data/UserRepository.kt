@@ -82,8 +82,10 @@ class UserRepository(
     suspend fun getStories(): StoryResponse {
         val user = userPreference.getSession().first()
         Log.d("UserRepository", "Token untuk get: ${user.token}")
+        Log.d("UserRepository", "ADEFRGTHYJUKILO;P;OLKJHGFDSDFGHJK")
         val token = "Bearer ${user.token}"
         try {
+            Log.d("UserRepository", "Response: ${apiService.getStories(token)}")
             return apiService.getStories(token)
         } catch (e: HttpException){
             throw e
