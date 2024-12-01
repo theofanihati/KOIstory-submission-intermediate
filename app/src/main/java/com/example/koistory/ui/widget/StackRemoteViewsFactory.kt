@@ -2,7 +2,6 @@ package com.example.koistory.ui.widget
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.core.os.bundleOf
@@ -25,7 +24,6 @@ internal class StackRemoteViewsFactory(
             try {
                 val response = repository.getStories()
                 val stories = response.listStory
-                Log.d("StackRemoteViewsFactory", "Received ${stories.size} stories")
 
                 if (stories.isNotEmpty()) {
                     mWidgetItems.clear()
@@ -34,18 +32,12 @@ internal class StackRemoteViewsFactory(
                             val name = story.name ?: "No Name"
                             val description = story.description ?: "No Description"
                             mWidgetItems.add(Pair(name, description))
-                            Log.d("StackRemoteViewsFactory", "Added item: $name, $description")
                         } catch (e: Exception) {
-                            Log.e("StackRemoteViewsFactory", "Error loading image: ${e.message}")
                         }
                     }
                     withContext(Dispatchers.Main) {
-                        Log.d("StackRemoteViewsFactory", "onDataSetChanged called")
                         onDataSetChanged()
                     }
-
-                } else {
-                    Log.e("StackRemoteViewsFactory", "No stories found")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -61,13 +53,11 @@ internal class StackRemoteViewsFactory(
     }
 
     override fun getCount(): Int {
-        Log.d("StackRemoteViewsFactory", "Item count: ${mWidgetItems.size}")
         return mWidgetItems.size
     }
 
     override fun getViewAt(position: Int): RemoteViews {
         val item = mWidgetItems[position]
-        Log.d("StackRemoteViewsFactory", "Getting view for position: $position, item: $item")
         val remoteViews = RemoteViews(mContext.packageName, R.layout.item_widget)
         remoteViews.setTextViewText(R.id.tv_widget_name, item.first)
         remoteViews.setTextViewText(R.id.tv_description, item.second)

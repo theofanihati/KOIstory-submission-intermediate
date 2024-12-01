@@ -1,6 +1,5 @@
 package com.example.koistory.data
 
-import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.koistory.data.pref.UserModel
 import com.example.koistory.data.pref.UserPreference
@@ -61,7 +60,6 @@ class UserRepository(
                     isLogin = true,
                 )
                 val token = userModel.token
-                Log.d("UserRepository", "Token saat ini: $token")
                 userRepository.saveSession(userModel)
             }
             println("Login berhasil, sesi sudah disimpan")
@@ -81,11 +79,8 @@ class UserRepository(
 
     suspend fun getStories(): StoryResponse {
         val user = userPreference.getSession().first()
-        Log.d("UserRepository", "Token untuk get: ${user.token}")
-        Log.d("UserRepository", "ADEFRGTHYJUKILO;P;OLKJHGFDSDFGHJK")
         val token = "Bearer ${user.token}"
         try {
-            Log.d("UserRepository", "Response: ${apiService.getStories(token)}")
             return apiService.getStories(token)
         } catch (e: HttpException){
             throw e
@@ -95,18 +90,14 @@ class UserRepository(
     suspend fun getStoryById(id: String): Story? {
         val user = userPreference.getSession().first()
         val token = "Bearer ${user.token}"
-        Log.d("UserRepository", "Token untuk get: $token")
-        Log.d("UserRepository", "ID untuk get: $id")
 
         return withContext(Dispatchers.IO) {
             try {
                 val response = apiService.getStoryById(id, token).execute()
-                Log.d("UserRepository", "Response body: ${response.body()}")
                 if (response.isSuccessful) {
                     val story = response.body()?.story
                     story
                 } else {
-                    Log.e("UserRepository", "Gagal mengambil story: ${response.code()}")
                     null
                 }
             } catch (e: HttpException){
@@ -126,7 +117,6 @@ class UserRepository(
         )
         val user = userPreference.getSession().first()
         val token = "Bearer ${user.token}"
-        Log.d("UserRepository", "Token untuk post: $token")
 
         try {
             val successResponse = apiService.uploadImage(token, multipartBody, requestBody)
@@ -142,7 +132,6 @@ class UserRepository(
         userPreference.logout()
         val user = userPreference.getSession().firstOrNull()
         val token = user?.token
-        Log.d("UserRepository", "Token saat ini: $token")
         println("Logout berhasil, sesi sudah dihapus")
     }
 

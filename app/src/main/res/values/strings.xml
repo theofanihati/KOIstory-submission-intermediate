@@ -44,5 +44,8 @@
     <string name="empty_text" translatable="false">NO DATA</string>
     <string name="add_widget" translatable="false">Add widget</string>
     <string name="app_widget_description">menampilkan gambar cerita pada widget</string>
+    <string name="gagal_ambil_gambar">Pengambilan gambar gagal, coba lagi</string>
+    <string name="masukan_gambar">Masukkan gambar dulu ya</string>
+    <string name="gagal_memunculkan_kamera">Gagal memunculkan kamera.</string>
 
 </resources>

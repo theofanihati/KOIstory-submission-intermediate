@@ -15,6 +15,7 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import com.example.koistory.R
 import com.example.koistory.databinding.ActivityCameraBinding
 import com.example.koistory.utils.createCustomTempFile
 
@@ -67,7 +68,7 @@ class CameraActivity : AppCompatActivity() {
             } catch (exc: Exception) {
                 Toast.makeText(
                     this@CameraActivity,
-                    "Gagal memunculkan kamera.",
+                    getString(R.string.gagal_memunculkan_kamera),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -91,7 +92,7 @@ class CameraActivity : AppCompatActivity() {
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
                         this@CameraActivity,
-                        "Gagal mengambil gambar.",
+                        getString(R.string.gagal_ambil_gambar),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

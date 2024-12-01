@@ -14,7 +14,6 @@ class StackWidgetService : RemoteViewsService() {
             ApiConfig.getApiService(),
             UserPreference.getInstance(this.applicationContext.dataStore)
         )
-        Log.d("StackWidgetService", "CEKKKKKKKKKKK")
         return StackRemoteViewsFactory(this.applicationContext, userRepository)
     }
 }

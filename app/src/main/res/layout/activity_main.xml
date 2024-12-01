@@ -49,8 +49,8 @@
     <Button
         android:id="@+id/action_logout"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:layout_marginStart="200dp"
         android:alpha="100"
         android:backgroundTint="@color/yellow"

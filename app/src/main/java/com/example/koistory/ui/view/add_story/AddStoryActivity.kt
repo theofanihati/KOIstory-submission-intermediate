@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import com.example.koistory.R
 import com.example.koistory.data.ResultState
 import com.example.koistory.databinding.ActivityAddStoryBinding
 import com.example.koistory.ui.view.CombinedViewModel
@@ -81,7 +82,7 @@ class AddStoryActivity : AppCompatActivity() {
             viewModel.setCurrentImageUri(uri)
             showImage()
         } else {
-            showToast("Pengambilan gambar gagal, coba lagi")
+            showToast(getString(R.string.gagal_ambil_gambar))
         }
     }
 
@@ -97,7 +98,7 @@ class AddStoryActivity : AppCompatActivity() {
         if (isSuccess) {
             showImage()
         } else {
-            showToast("Pengambilan gambar gagal, coba lagi")
+            showToast(getString(R.string.gagal_ambil_gambar))
         }
     }
 
@@ -148,7 +149,7 @@ class AddStoryActivity : AppCompatActivity() {
                     }
                 }
             }
-        } ?: showToast("Masukkan gambar dulu ya")
+        } ?: showToast(getString(R.string.masukan_gambar))
     }
 
     private fun showLoading(isLoading: Boolean) {

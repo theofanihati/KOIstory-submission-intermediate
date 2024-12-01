@@ -19,7 +19,6 @@ import java.io.File
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 
-
 class CombinedViewModel(application: Application, private val repository: UserRepository) : AndroidViewModel(application) {
     private val context = getApplication<Application>().applicationContext
 
@@ -130,7 +129,6 @@ class CombinedViewModel(application: Application, private val repository: UserRe
     fun setCurrentImageUri(uri: Uri?) {
         _imageUri.value = uri
     }
-
 
     private fun handleError(code: Int?) {
         _errorMessage.value = when (code) {

@@ -42,4 +42,7 @@
     <string name="error_internal">Internal Server Error. Try again later.</string>
     <string name="error_unknown">Unknown error.</string>
     <string name="app_widget_description">showing story images on widget</string>
+    <string name="gagal_ambil_gambar">Unable to get data, try again</string>
+    <string name="masukan_gambar">Please insert the image first</string>
+    <string name="gagal_memunculkan_kamera">Unable to start camera</string>
 </resources>

@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.net.toUri
@@ -23,14 +22,16 @@ class KoiWidget : AppWidgetProvider() {
             appWidgetManager: AppWidgetManager,
             appWidgetId: Int
         ) {
-            Log.d("KoiWidget", "yctertvyunimo,[.,mnibu")
             val intent = Intent(context, StackWidgetService::class.java)
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
             val views = RemoteViews(context.packageName, R.layout.koi_widget)
+//            val intent = Intent(context, StackWidgetService::class.java)
             views.setRemoteAdapter(R.id.stack_view, intent)
             views.setEmptyView(R.id.stack_view, R.id.empty_view)
+            appWidgetManager.updateAppWidget(appWidgetId, views)
+
 
             val toastIntent = Intent(context, KoiWidget::class.java)
             toastIntent.action = TOAST_ACTION
