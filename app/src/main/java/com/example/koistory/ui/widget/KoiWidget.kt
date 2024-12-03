@@ -27,7 +27,6 @@ class KoiWidget : AppWidgetProvider() {
             intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
             val views = RemoteViews(context.packageName, R.layout.koi_widget)
-//            val intent = Intent(context, StackWidgetService::class.java)
             views.setRemoteAdapter(R.id.stack_view, intent)
             views.setEmptyView(R.id.stack_view, R.id.empty_view)
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -44,7 +43,6 @@ class KoiWidget : AppWidgetProvider() {
                 else 0
             )
             views.setPendingIntentTemplate(R.id.stack_view, toastPendingIntent)
-
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
@@ -54,7 +52,6 @@ class KoiWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }

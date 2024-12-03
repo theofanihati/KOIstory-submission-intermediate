@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:theme="@style/Theme.KoiStory.AppWidgetContainer">
 
     <LinearLayout
@@ -19,12 +20,11 @@
 
         <TextView
             android:id="@+id/banner_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:padding="8dp"
-            android:background="@color/yellow"
             android:text="@string/appwidget_text"
             android:textAlignment="center"
             android:textColor="@color/white"

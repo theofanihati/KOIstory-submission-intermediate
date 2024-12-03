@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.File
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 
 class CombinedViewModel(application: Application, private val repository: UserRepository) : AndroidViewModel(application) {
@@ -127,7 +128,12 @@ class CombinedViewModel(application: Application, private val repository: UserRe
     fun uploadImage(file: File, description: String) = repository.uploadImage(file, description)
 
     fun setCurrentImageUri(uri: Uri?) {
-        _imageUri.value = uri
+        if (uri != null){
+            _imageUri.value = uri
+            Log.d("CombinedViewModel", "uri ditangkap: $uri")
+        } else{
+            _errorMessage.value = context.getString(R.string.tidak_ada_data)
+        }
     }
 
     private fun handleError(code: Int?) {

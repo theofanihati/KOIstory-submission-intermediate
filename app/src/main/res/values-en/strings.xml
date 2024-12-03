@@ -45,4 +45,8 @@
     <string name="gagal_ambil_gambar">Unable to get data, try again</string>
     <string name="masukan_gambar">Please insert the image first</string>
     <string name="gagal_memunculkan_kamera">Unable to start camera</string>
+    <string name="akses_diberikan">"Permission request granted"</string>
+    <string name="akses_ditolak">"Permission request denied"</string>
+    <string name="tidak_ada_nama">No Name</string>
+    <string name="tidak_ada_deskripsi">No Description</string>
 </resources>

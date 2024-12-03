@@ -47,5 +47,8 @@
     <string name="gagal_ambil_gambar">Pengambilan gambar gagal, coba lagi</string>
     <string name="masukan_gambar">Masukkan gambar dulu ya</string>
     <string name="gagal_memunculkan_kamera">Gagal memunculkan kamera.</string>
-
+    <string name="akses_diberikan">Akses diberikan</string>
+    <string name="akses_ditolak">Akses ditolak</string>
+    <string name="tidak_ada_nama">Tidak Ada Nama</string>
+    <string name="tidak_ada_deskripsi">Tidak Ada Deskripsi</string>
 </resources>
