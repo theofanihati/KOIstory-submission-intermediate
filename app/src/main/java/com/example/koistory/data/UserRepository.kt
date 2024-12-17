@@ -87,6 +87,16 @@ class UserRepository(
         }
     }
 
+    suspend fun getStoriesWithLocation(): StoryResponse {
+        val user = userPreference.getSession().first()
+        val token = "Bearer ${user.token}"
+        try {
+            return apiService.getStoriesWithLocation(token)
+        } catch (e: HttpException){
+            throw e
+        }
+    }
+
     suspend fun getStoryById(id: String): Story? {
         val user = userPreference.getSession().first()
         val token = "Bearer ${user.token}"

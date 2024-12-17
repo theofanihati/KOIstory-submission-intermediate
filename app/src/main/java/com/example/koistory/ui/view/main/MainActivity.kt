@@ -21,6 +21,7 @@ import com.example.koistory.ui.view.add_story.AddStoryActivity
 import com.example.koistory.ui.view.welcome.WelcomeActivity
 import android.provider.Settings
 import com.example.koistory.R
+import com.example.koistory.ui.view.maps.MapsActivity
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<CombinedViewModel> {
@@ -91,6 +92,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.ivSettings.setOnClickListener{
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
+        binding.ivMaps.setOnClickListener{
+            startActivity(Intent(this, MapsActivity::class.java))
         }
         binding.fabAdd.setOnClickListener{
             startActivity(Intent(this, AddStoryActivity::class.java))

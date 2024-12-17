@@ -105,6 +105,22 @@ class CombinedViewModel(application: Application, private val repository: UserRe
         }
     }
 
+    fun getStoriesWithLocation() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            try {
+                val response = repository.getStoriesWithLocation()
+                _stories.value = response.listStory
+            } catch (e: HttpException) {
+                handleError(e.code())
+            } catch (e: Exception) {
+                _errorMessage.value = context.getString(R.string.tidak_ada_internet)
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+
     fun getStoryById(id: String){
         viewModelScope.launch {
             _isLoading.value = true

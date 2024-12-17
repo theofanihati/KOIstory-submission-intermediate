@@ -37,12 +37,22 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/iv_settings"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/iv_maps"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="305dp"
+        android:layout_marginStart="180dp"
+        android:padding="4dp"
+        app:srcCompat="@drawable/ic_maps_brown" />
+
+    <ImageView
+        android:id="@+id/iv_settings"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="216dp"
         android:padding="4dp"
         app:srcCompat="@drawable/ic_settings_brown" />
 
@@ -51,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="256dp"
         android:alpha="100"
         android:backgroundTint="@color/yellow"
         android:text="@string/keluar"
