@@ -15,12 +15,14 @@ import com.example.koistory.data.response.ListStoryItem
 import com.example.koistory.databinding.ActivityMainBinding
 import com.example.koistory.ui.view.CombinedViewModel
 import com.example.koistory.ui.view.detail.DetailActivity
-import com.example.koistory.ui.view.StoryAdapter
+import com.example.koistory.ui.view.adapter.StoryAdapter
 import com.example.koistory.ui.view.ViewModelFactory
 import com.example.koistory.ui.view.add_story.AddStoryActivity
 import com.example.koistory.ui.view.welcome.WelcomeActivity
 import android.provider.Settings
+import android.util.Log
 import com.example.koistory.R
+import com.example.koistory.ui.view.adapter.LoadingStateAdapter
 import com.example.koistory.ui.view.maps.MapsActivity
 
 class MainActivity : AppCompatActivity() {
@@ -104,8 +106,17 @@ class MainActivity : AppCompatActivity() {
     private fun setStory(listStories: List<ListStoryItem>) {
         if(listStories != null){
             val adapter = StoryAdapter()
-            adapter.submitList(listStories)
-            binding.rvStory.adapter = adapter
+            Log.d("MainActivity", "dapet ni $listStories")
+//            adapter.submitList(listStories)
+            binding.rvStory.adapter = adapter.withLoadStateFooter(
+                footer = LoadingStateAdapter {
+                    adapter.retry()
+                }
+            )
+
+            viewModel.pagedStory.observe(this, {
+                adapter.submitData(lifecycle, it)
+            })
 
             adapter.setOnItemClickCallback(object : StoryAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: ListStoryItem) {

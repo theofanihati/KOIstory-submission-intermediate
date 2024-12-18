@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
+    id("kotlin-android")
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13"
+    id("kotlin-parcelize")
 }
 
 android {
@@ -40,7 +43,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -79,4 +81,14 @@ dependencies {
 
     // gplay
     implementation (libs.play.services.base)
+
+    // paging
+    implementation ("androidx.paging:paging-runtime-ktx:3.3.5")
+    implementation ("androidx.room:room-paging:2.6.1")
+
+
+    // room
+    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-runtime:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 }

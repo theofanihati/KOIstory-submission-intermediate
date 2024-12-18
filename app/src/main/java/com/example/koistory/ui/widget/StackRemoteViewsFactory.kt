@@ -6,6 +6,7 @@ import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import androidx.core.os.bundleOf
 import com.example.koistory.R
+import com.example.koistory.data.StoryRepository
 import com.example.koistory.data.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,7 @@ import kotlin.collections.ArrayList
 
 internal class StackRemoteViewsFactory(
     private val mContext: Context,
-    private val repository: UserRepository
+    private val repository: StoryRepository
 ) : RemoteViewsService.RemoteViewsFactory {
     private val mWidgetItems = ArrayList<Pair<String, String>>()
 

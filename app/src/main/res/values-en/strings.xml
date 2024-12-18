@@ -49,4 +49,6 @@
     <string name="akses_ditolak">"Permission request denied"</string>
     <string name="tidak_ada_nama">No Name</string>
     <string name="tidak_ada_deskripsi">No Description</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="retry">Retry</string>
 </resources>

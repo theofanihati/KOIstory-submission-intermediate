@@ -52,4 +52,5 @@
     <string name="tidak_ada_nama">Tidak Ada Nama</string>
     <string name="tidak_ada_deskripsi">Tidak Ada Deskripsi</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="retry">Coba lagi</string>
 </resources>

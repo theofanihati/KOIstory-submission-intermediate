@@ -2,6 +2,7 @@ package com.example.koistory.data.retrofit
 
 import com.example.koistory.data.response.DetailStoryResponse
 import com.example.koistory.data.response.FileUploadResponse
+import com.example.koistory.data.response.ListStoryItem
 import com.example.koistory.data.response.LoginResponse
 import com.example.koistory.data.response.RegisterResponse
 import com.example.koistory.data.response.StoryResponse
@@ -38,6 +39,15 @@ interface ApiService {
     @GET("stories")
     suspend fun getStories(
         @Header("Authorization") token: String,
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20
+    ): StoryResponse
+
+    @GET("stories")
+    suspend fun getPagedStories(
+        @Header("Authorization") token: String,
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20
     ): StoryResponse
 
     @GET("stories/{id}")
