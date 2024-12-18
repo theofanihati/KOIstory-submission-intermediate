@@ -8,19 +8,15 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.example.koistory.data.local.database.StoryDatabase
-import com.example.koistory.data.pref.UserModel
 import com.example.koistory.data.pref.UserPreference
 import com.example.koistory.data.response.FileUploadResponse
 import com.example.koistory.data.response.ListStoryItem
-import com.example.koistory.data.response.LoginResponse
 import com.example.koistory.data.response.Story
 import com.example.koistory.data.response.StoryResponse
 import com.example.koistory.data.retrofit.ApiService
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.File
@@ -107,7 +103,6 @@ class StoryRepository(
                 ),
                 remoteMediator = StoryRemoteMediator(storyDatabase, apiService, token),
                 pagingSourceFactory = {
-//                QuotePagingSource(apiService)
                     storyDatabase.storyDao().getAllQuote()
                 }
             ).liveData

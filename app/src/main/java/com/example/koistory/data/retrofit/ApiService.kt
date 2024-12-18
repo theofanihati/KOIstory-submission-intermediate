@@ -2,7 +2,6 @@ package com.example.koistory.data.retrofit
 
 import com.example.koistory.data.response.DetailStoryResponse
 import com.example.koistory.data.response.FileUploadResponse
-import com.example.koistory.data.response.ListStoryItem
 import com.example.koistory.data.response.LoginResponse
 import com.example.koistory.data.response.RegisterResponse
 import com.example.koistory.data.response.StoryResponse

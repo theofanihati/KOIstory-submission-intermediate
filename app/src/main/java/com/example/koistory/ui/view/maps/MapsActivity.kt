@@ -4,16 +4,12 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.example.koistory.R
 import com.example.koistory.data.response.ListStoryItem
-import com.example.koistory.data.response.Story
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -87,10 +83,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val success =
                 mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
             if (!success) {
-                Log.e(TAG, "Style parsing failed.")
+                Toast.makeText(this, R.string.gagal_memuat_gaya_peta, Toast.LENGTH_SHORT).show()
             }
         } catch (exception: Resources.NotFoundException) {
-            Log.e(TAG, "Can't find style. Error: ", exception)
+            Toast.makeText(this, R.string.gagal_memuat_gaya_peta, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -110,9 +106,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val firstLocation = LatLng(stories[0].lat, stories[0].lon)
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(firstLocation, 10f))
         }
-    }
-
-    companion object {
-        private const val TAG = "MapsActivity"
     }
 }

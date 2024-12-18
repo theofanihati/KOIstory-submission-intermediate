@@ -1,31 +1,11 @@
 package com.example.koistory.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.liveData
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.liveData
-import com.example.koistory.data.local.database.StoryDatabase
 import com.example.koistory.data.pref.UserModel
 import com.example.koistory.data.pref.UserPreference
-import com.example.koistory.data.response.FileUploadResponse
 import com.example.koistory.data.response.LoginResponse
-import com.example.koistory.data.response.Story
-import com.example.koistory.data.response.StoryResponse
 import com.example.koistory.data.retrofit.ApiService
-import com.google.gson.Gson
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
-import java.io.File
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 
 class UserRepository(
     private val apiService: ApiService,

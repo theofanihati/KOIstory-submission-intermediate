@@ -53,4 +53,5 @@
     <string name="tidak_ada_deskripsi">Tidak Ada Deskripsi</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="retry">Coba lagi</string>
+    <string name="gagal_memuat_gaya_peta">Gagal memuat gaya peta</string>
 </resources>

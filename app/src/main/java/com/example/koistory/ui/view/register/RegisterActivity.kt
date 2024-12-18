@@ -72,7 +72,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun showAlert() {
-        val email = binding.edRegisterEmail.text.toString()
         AlertDialog.Builder(this).apply {
             setTitle("Yeah!")
             setMessage(R.string.alert_register_success)

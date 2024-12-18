@@ -13,15 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.koistory.data.response.ListStoryItem
 import com.example.koistory.databinding.ActivityMainBinding
-import com.example.koistory.ui.view.CombinedViewModel
 import com.example.koistory.ui.view.detail.DetailActivity
 import com.example.koistory.ui.view.adapter.StoryAdapter
 import com.example.koistory.ui.view.ViewModelFactory
 import com.example.koistory.ui.view.add_story.AddStoryActivity
 import com.example.koistory.ui.view.welcome.WelcomeActivity
 import android.provider.Settings
-import android.util.Log
-import androidx.paging.PagingData
 import com.example.koistory.R
 import com.example.koistory.ui.view.MainViewModel
 import com.example.koistory.ui.view.adapter.LoadingStateAdapter

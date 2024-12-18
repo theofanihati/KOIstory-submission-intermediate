@@ -17,11 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.File
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.liveData
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import com.example.koistory.data.StoryRepository
 
 class CombinedViewModel(application: Application, private val repository: UserRepository, private val storyRepository: StoryRepository) : AndroidViewModel(application) {
@@ -142,7 +138,6 @@ class CombinedViewModel(application: Application, private val repository: UserRe
     fun setCurrentImageUri(uri: Uri?) {
         if (uri != null){
             _imageUri.value = uri
-            Log.d("CombinedViewModel", "uri ditangkap: $uri")
         } else{
             _errorMessage.value = context.getString(R.string.tidak_ada_data)
         }

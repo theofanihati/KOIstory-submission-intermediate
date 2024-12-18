@@ -48,8 +48,6 @@ data class FileUploadResponse(
 	val message: String
 )
 
-
-
 data class Story(
 	@field:SerializedName("photoUrl")
 	val photoUrl: String? = null,
