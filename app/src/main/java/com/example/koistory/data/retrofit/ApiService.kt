@@ -43,13 +43,6 @@ interface ApiService {
         @Query("size") size: Int = 20
     ): StoryResponse
 
-    @GET("stories")
-    suspend fun getPagedStories(
-        @Header("Authorization") token: String,
-        @Query("page") page: Int = 1,
-        @Query("size") size: Int = 20
-    ): StoryResponse
-
     @GET("stories/{id}")
     fun getStoryById(
         @Path("id") id: String,

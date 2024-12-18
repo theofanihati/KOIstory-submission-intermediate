@@ -20,6 +20,9 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(CombinedViewModel::class.java) -> {
                 CombinedViewModel(application, repository, storyRepository) as T
             }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(repository, storyRepository) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }

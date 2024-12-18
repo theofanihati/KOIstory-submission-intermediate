@@ -103,7 +103,7 @@ class StoryRepository(
             return Pager(
                 config = PagingConfig(
                     pageSize = 5,
-                    maxSize = 16
+                    maxSize = 15
                 ),
                 remoteMediator = StoryRemoteMediator(storyDatabase, apiService, token),
                 pagingSourceFactory = {
@@ -114,7 +114,6 @@ class StoryRepository(
         } catch (e: HttpException){
             throw e
         }
-
     }
 
     companion object {

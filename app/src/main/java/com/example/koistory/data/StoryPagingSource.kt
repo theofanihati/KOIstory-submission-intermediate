@@ -4,9 +4,7 @@ import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.koistory.data.response.ListStoryItem
-import com.example.koistory.data.response.StoryResponse
 import com.example.koistory.data.retrofit.ApiService
-import kotlinx.coroutines.flow.first
 
 class StoryPagingSource(private val apiService: ApiService, private val token: String) : PagingSource<Int, ListStoryItem>() {
     private companion object {
@@ -16,7 +14,7 @@ class StoryPagingSource(private val apiService: ApiService, private val token: S
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ListStoryItem> {
         return try {
             val position = params.key ?: INITIAL_PAGE_INDEX
-            val response = apiService.getPagedStories(token, position, params.loadSize)
+            val response = apiService.getStories(token, position, params.loadSize)
             val responseData = response.listStory
             Log.d("StoryPagingSource", "Page: $position, Items Loaded: ${responseData.size}")
 

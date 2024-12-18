@@ -47,7 +47,6 @@ class StoryRemoteMediator(
                 nextKey
             }
         }
-//        val page = INITIAL_PAGE_INDEX
         try {
             val response = apiService.getStories(token, page, state.config.pageSize)
             val responseData = response.listStory

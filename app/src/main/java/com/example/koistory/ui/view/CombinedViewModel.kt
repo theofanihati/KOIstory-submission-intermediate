@@ -27,11 +27,6 @@ import com.example.koistory.data.StoryRepository
 class CombinedViewModel(application: Application, private val repository: UserRepository, private val storyRepository: StoryRepository) : AndroidViewModel(application) {
     private val context = getApplication<Application>().applicationContext
 
-    val pagedStory: LiveData<PagingData<ListStoryItem>> = liveData {
-        val stories = storyRepository.getPagedStories().cachedIn(viewModelScope)
-        emitSource(stories)
-    }
-
     val registerResponse: MutableLiveData<RegisterResponse> = MutableLiveData()
 
     private val _imageUri = MutableLiveData<Uri?>()
@@ -79,14 +74,6 @@ class CombinedViewModel(application: Application, private val repository: UserRe
                 _isLoading.value = false
                 onResult(false)
             }
-        }
-    }
-
-    fun logout(){
-        _isLoading.value = true
-        viewModelScope.launch {
-            _isLoading.value = false
-            repository.logout()
         }
     }
 
@@ -160,20 +147,6 @@ class CombinedViewModel(application: Application, private val repository: UserRe
             _errorMessage.value = context.getString(R.string.tidak_ada_data)
         }
     }
-
-//    private val _pagedStory = MutableLiveData<PagingData<ListStoryItem>>()
-//    val pagedStory: LiveData<PagingData<ListStoryItem>> = _pagedStory
-//
-//    fun getPagedStories(){
-//        viewModelScope.launch {
-//            val pagedStory: LiveData<PagingData<ListStoryItem>> =
-//                storyRepository.getPagedStories().cachedIn(viewModelScope)
-//            _pagedStory.value = pagedStory
-//        }
-//    }
-
-//    val pagedStory: LiveData<PagingData<ListStoryItem>> =
-//        storyRepository.getPagedStories().cachedIn(viewModelScope)
 
     private fun handleError(code: Int?) {
         _errorMessage.value = when (code) {

@@ -21,19 +21,17 @@ import com.example.koistory.ui.view.add_story.AddStoryActivity
 import com.example.koistory.ui.view.welcome.WelcomeActivity
 import android.provider.Settings
 import android.util.Log
+import androidx.paging.PagingData
 import com.example.koistory.R
+import com.example.koistory.ui.view.MainViewModel
 import com.example.koistory.ui.view.adapter.LoadingStateAdapter
 import com.example.koistory.ui.view.maps.MapsActivity
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<CombinedViewModel> {
+    private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(application,this)
     }
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-        private const val TAG = "MainActivity"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,21 +44,11 @@ class MainActivity : AppCompatActivity() {
         setupView()
         setupAction()
 
-        viewModel.errorMessage.observe(this) {
-            message -> if (message != null) {
-                Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         viewModel.isLoading.observe(this) {
             isLoading -> showLoading(isLoading)
         }
 
-        viewModel.stories.observe(this) {
-            stories -> setStory(stories)
-        }
-
-        viewModel.getStories()
+        setStory()
     }
 
     private fun setupView() {
@@ -103,29 +91,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setStory(listStories: List<ListStoryItem>) {
-        if(listStories != null){
-            val adapter = StoryAdapter()
-            Log.d("MainActivity", "dapet ni $listStories")
-//            adapter.submitList(listStories)
-            binding.rvStory.adapter = adapter.withLoadStateFooter(
-                footer = LoadingStateAdapter {
-                    adapter.retry()
-                }
-            )
+    private fun setStory(){
+        val adapter = StoryAdapter()
+        binding.rvStory.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
+            }
+        )
 
-            viewModel.pagedStory.observe(this, {
-                adapter.submitData(lifecycle, it)
-            })
-
-            adapter.setOnItemClickCallback(object : StoryAdapter.OnItemClickCallback {
-                override fun onItemClicked(data: ListStoryItem) {
-                    showSelectedStory(data)
+        viewModel.pagedStory.observe(this) { pagedData ->
+            if (pagedData != null) {
+                adapter.submitData(lifecycle, pagedData)
+                } else {
+                    Toast.makeText(this, R.string.tidak_ada_data, Toast.LENGTH_SHORT).show()
                 }
-            })
-        } else {
-            Toast.makeText(this, R.string.tidak_ada_data, Toast.LENGTH_SHORT).show()
-        }
+            }
+
+        adapter.setOnItemClickCallback(object : StoryAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: ListStoryItem) {
+                showSelectedStory(data)
+            }
+        })
     }
 
     private fun showSelectedStory(story: ListStoryItem) {
@@ -136,10 +122,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
-        }
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }
